@@ -1,12 +1,12 @@
 FROM docker.io/eclipse-temurin:17-jre-focal
 
 RUN useradd -ms /bin/bash webgoat
-RUN chgrp -R 0 /home/webgoat
-RUN chmod -R g=u /home/webgoat
+RUN chgrp -R 0 /opt/docker/webgoat
+RUN chmod -R g=u /opt/docker/webgoat
 
 USER webgoat
 
-COPY --chown=webgoat webgoat-*.jar /home/webgoat/webgoat.jar
+COPY --chown=webgoat webgoat-*.jar /opt/docker/webgoat/webgoat.jar
 
 EXPOSE 8080
 
